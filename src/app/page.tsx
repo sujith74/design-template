@@ -844,8 +844,8 @@ export default function Home() {
               <ul className="space-y-3 text-gray-300">
                 <li><a href="#" className="hover:text-teal-500">About Us</a></li>
                 <li><a href="#" className="hover:text-teal-500">Causes</a></li>
-                <li><a href="#" className="hover:text-teal-500">Events</a></li>
-                <li><a href="#" className="hover:text-teal-500">Blog</a></li>
+                <li><a href="#" className="hover:text-teal-500">LogIn</a></li>
+                <li><a href="#" className="hover:text-teal-500">Report</a></li>
                 <li><a href="#" className="hover:text-teal-500">FAQ</a></li>
                 <li><a href="#" className="hover:text-teal-500">Contact Us</a></li>
               </ul>
