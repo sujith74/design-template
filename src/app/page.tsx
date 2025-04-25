@@ -191,36 +191,37 @@ export default function Home() {
 
       {/* Top Bar */}
       <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 text-sm">
-        <Container maxWidth="xl">
-          <div className="flex justify-between items-center">
-            <div className="flex space-x-4">
-              <span className="flex items-center">
-                <Email className="mr-1" fontSize="small" />
-                help@joyfulminds.com
-              </span>
-              <span className="flex items-center">
-                <Phone className="mr-1" fontSize="small" />
-                +1 800 785 6748
-              </span>
-            </div>
-            <div className="flex space-x-4">
-              <Button 
-                variant="text" 
-                className="text-white hover:bg-white/10"
-                startIcon={<Favorite />}
-              >
-                My Account
-              </Button>
-              <Button 
-                variant="contained" 
-                className="bg-white text-amber-700 hover:bg-gray-100 shadow-md"
-              >
-                Register
-              </Button>
-            </div>
-          </div>
-        </Container>
+  <Container maxWidth="xl">
+    <div className="flex justify-between items-center flex-wrap">
+      <div className="flex space-x-4 mb-4 md:mb-0">
+        <span className="flex items-center">
+          <Email className="mr-1" fontSize="small" />
+          help@joyfulminds.com
+        </span>
+        <span className="flex items-center">
+          <Phone className="mr-1" fontSize="small" />
+          +1 800 785 6748
+        </span>
       </div>
+      <div className="flex space-x-4">
+        <Button 
+          variant="text" 
+          className="text-white hover:bg-white/10"
+          startIcon={<Favorite />}
+        >
+          My Account
+        </Button>
+        <Button 
+          variant="contained" 
+          className="bg-white text-amber-700 hover:bg-gray-100 shadow-md"
+        >
+          Register
+        </Button>
+      </div>
+    </div>
+  </Container>
+</div>
+
 
       {/* Main Header */}
       <motion.header 
@@ -240,18 +241,41 @@ export default function Home() {
             </motion.div>
             
             <nav className="hidden lg:flex space-x-8">
-              {['ABOUT US', 'OUR INITIATIVES', 'LOG IN', 'REPORT', 'CONTACT US'].map((item) => (
-                <motion.a 
-                  key={item}
-                  href="#"
-                  className="text-gray-800 hover:text-amber-600 font-medium relative group"
-                  whileHover={{ y: -2 }}
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
-                </motion.a>
-              ))}
-            </nav>
+  {['ABOUT US', 'OUR INITIATIVES', 'LOG IN', 'REPORT', 'CONTACT US'].map((item) => {
+    // Define the link for each item
+    let href = "#";
+    switch (item) {
+      case 'ABOUT US':
+        href = 'https://about-us-two-indol.vercel.app/';
+        break;
+      case 'OUR INITIATIVES':
+        href = 'https://program-page-pearl.vercel.app/';
+        break;
+      case 'LOG IN':
+        href = 'https://login-page-henna.vercel.app/';
+        break;
+      case 'REPORT':
+        href = 'https://report-form-template.vercel.app/';
+        break;
+      case 'CONTACT US':
+        href = 'https://contact-us-form-tau.vercel.app/';
+        break;
+    }
+
+    return (
+      <motion.a 
+        key={item}
+        href={href}
+        className="text-gray-800 hover:text-amber-600 font-medium relative group"
+        whileHover={{ y: -2 }}
+      >
+        {item}
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+      </motion.a>
+    );
+  })}
+</nav>
+
             
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
@@ -409,7 +433,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="py-16 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-50/20 to-white/50 pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container mx-auto px-4">
         <motion.div
@@ -419,7 +443,7 @@ export default function Home() {
           viewport={{ once: true }}
           className=" mb-12"
         >
-          <Typography variant="h4" className="!font-bold !mb-4 text-gray-800 text-center">
+          <Typography variant="h4" className="!font-bold !mb-4  text-gray-800 text-center">
             Our <span className="text-amber-600">Initiatives</span>
           </Typography>
           <Typography variant="body1" className="text-gray-600 mx-auto text-center ">
@@ -449,12 +473,14 @@ export default function Home() {
                   {initiative.description}
                 </Typography>
                 <Button
-                  variant="text"
-                  className={`text-${initiative.color}-600 hover:bg-${initiative.color}-50 font-medium relative z-10`}
-                  endIcon={<ArrowForward className="group-hover:translate-x-1 transition-transform" />}
-                >
-                  Learn More
-                </Button>
+  variant="text"
+  className={`text-${initiative.color}-600 hover:bg-${initiative.color}-50 font-medium relative z-10`}
+  endIcon={<ArrowForward className="group-hover:translate-x-1 transition-transform" />}
+  onClick={() => window.location.href = 'https://program-page-pearl.vercel.app/'}
+>
+  Learn More
+</Button>
+
               </motion.div>
             </div>
           ))}
@@ -763,53 +789,6 @@ export default function Home() {
           
           <Box className="flex flex-col lg:flex-row items-center gap-16">
       
-      {/* Left Image Section */}
-      <Box className="w-full lg:w-1/2">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInUp}
-          viewport={{ once: true }}
-        >
-          <div className="relative rounded-2xl overflow-hidden shadow-xl">
-            <Image
-              src="https://cdn.pixabay.com/photo/2016/11/14/04/36/boy-1822614_1280.jpg"
-              alt="Joyful Minds children"
-              width={800}
-              height={600}
-              className="w-full h-auto"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          </div>
-        </motion.div>
-      </Box>
-
-      {/* Right Text Section */}
-      <Box className="w-full lg:w-1/2">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={staggerContainer}
-          viewport={{ once: true }}
-        >
-          <motion.div variants={fadeInUp}>
-            <Typography variant="body1" className="text-gray-700 !mb-6 text-lg">
-              At Joyful Minds, we firmly believe in the unique and inherent potential of every child...
-            </Typography>
-          </motion.div>
-          <motion.div variants={fadeInUp}>
-            <Typography variant="body1" className="text-gray-700 !mb-8 text-lg">
-              Our organization is wholeheartedly dedicated to brightening the lives...
-            </Typography>
-          </motion.div>
-          <motion.div variants={fadeInUp}>
-            <Typography variant="h6" className="text-amber-600 !font-bold text-lg">
-              We are Joyful.
-            </Typography>
-          </motion.div>
-        </motion.div>
-      </Box>
-
     </Box>
             </Container>
             </section>
@@ -819,7 +798,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 !mb-12">
             <div>
               <div className="!mb-6">
-                <Image src="/logo-joyful-minds-white.png" alt="Joyful Minds Logo" width={150} height={50} />
+                <Image src="https://crowdera-platform.s3.ap-south-1.amazonaws.com/CDRA/campaign-assets/0eb4c68e-785f-4f51-a735-37faa46fbeff_thumbnail_0fff8a35-a963-4bf1-8c42-3c98f5b15207_thumbnail_30e11477-9362-4975-b9dc-ab8dbca65e4a_thumbnail_Joyful Minds logo v4.png" alt="Joyful Minds Logo" width={150} height={50} />
               </div>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center">
