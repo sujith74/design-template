@@ -282,6 +282,7 @@ export default function Home() {
                 variant="contained" 
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-2 rounded-full shadow-lg"
                 startIcon={<Favorite />}
+                onClick={() => window.location.href = 'https://campaign-template-2.vercel.app/'}
               >
                 DONATE NOW
               </Button>
@@ -672,6 +673,7 @@ export default function Home() {
                 variant="contained" 
                 className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full shadow-lg text-lg"
                 startIcon={<Favorite />}
+                onClick={() => window.location.href = 'https://campaign-template-2.vercel.app/'}
               >
                 DONATE NOW
               </Button>
