@@ -2,6 +2,49 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  images: {
+    domains: ['crowdera-platform.s3.ap-south-1.amazonaws.com', "cdn.pixabay.com"],
+    
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "th.bing.com",
+        pathname: "/th/id/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.istockphoto.com",
+        pathname: "/photos/**",
+      },
+      {
+        protocol: "https",
+        hostname: "png.pngtree.com",
+        pathname: "/thumb_back/fh260/back_our/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+        pathname: "/photo/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      // Add this new pattern for Unsplash
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/photo-**", // This covers most Unsplash URLs
+      }
+      
+    ],
+    
+  },
+
 };
 
 export default nextConfig;
