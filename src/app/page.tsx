@@ -246,7 +246,7 @@ export default function Home() {
     let href = "#";
     switch (item) {
       case 'ABOUT US':
-        href = 'https://about-us-two-indol.vercel.app/';
+        href = 'https://next-app-about-us.vercel.app/';
         break;
       case 'OUR INITIATIVES':
         href = 'https://program-page-pearl.vercel.app/';
