@@ -50,6 +50,21 @@ export default function Home() {
     ]
   };
 
+  const palettes = {
+    primary: {
+      light: "#4C9F38",
+      main: "#4C9F38",
+      dark: "#4C9F38",
+      contrastText: "#fff"
+    },
+    secondary: {
+      light: "#eecd5e",
+      main: "#E9BD29",
+      dark: "#d5a916",
+      contrastText: "#000"
+    }
+  };
+  
   const initiatives = [
     {
       icon: <LocalHospital className="text-4xl text-amber-600" />,
@@ -278,14 +293,27 @@ export default function Home() {
 
             
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="contained" 
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-2 rounded-full shadow-lg"
-                startIcon={<Favorite />}
-                onClick={() => window.location.href = 'https://campaign-template-2.vercel.app/'}
-              >
-                DONATE NOW
-              </Button>
+             
+<Button 
+  variant="contained" 
+  startIcon={<Favorite />}
+  onClick={() => window.location.href = 'https://campaign-template-2.vercel.app/'}
+  sx={{
+    px: 3,
+    py: 1.5,
+    borderRadius: 9999,
+    color: palettes.secondary.contrastText,
+    background: `linear-gradient(90deg, ${palettes.secondary.light} 0%, ${palettes.secondary.main} 100%)`,
+    boxShadow: 3,
+    fontWeight: 600,
+    '&:hover': {
+      background: `linear-gradient(90deg, ${palettes.secondary.main} 0%, ${palettes.secondary.dark} 100%)`,
+      boxShadow: 6,
+    },
+  }}
+>
+  DONATE NOW
+</Button>
             </motion.div>
           </div>
         </Container>
@@ -341,12 +369,27 @@ export default function Home() {
               transition={{ delay: 0.6 }}
               className="flex flex-wrap justify-center lg:justify-start gap-4"
             >
-              <Button 
-                variant="contained" 
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg text-sm sm:text-base"
-              >
-                {slides[currentSlide].cta1}
-              </Button>
+             <Button
+  variant="contained"
+  sx={{
+    px: { xs: 3, sm: 4 },
+    py: { xs: 1.5, sm: 2 },
+    fontSize: { xs: '0.875rem', sm: '1rem' }, // text-sm to base
+    borderRadius: 9999,
+    color: palettes.secondary.contrastText,
+    background: `linear-gradient(90deg, ${palettes.secondary.light} 0%, ${palettes.secondary.main} 100%)`,
+    boxShadow: 4,
+    fontWeight: 600,
+    textTransform: 'none',
+    '&:hover': {
+      background: `linear-gradient(90deg, ${palettes.secondary.main} 0%, ${palettes.secondary.dark} 100%)`,
+      boxShadow: 6,
+    },
+  }}
+>
+  {slides[currentSlide].cta1}
+</Button>
+
               <Button 
                 variant="outlined" 
                 className="border-2 border-gray-800 text-gray-800 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base"
@@ -781,12 +824,24 @@ export default function Home() {
           </div>
           
           <div className="flex justify-center !mb-12">
-            <Button 
-              variant="contained" 
-              className="bg-yellow-500 hover:bg-yellow-600 text-black !font-bold px-6 py-2 rounded-md"
-            >
-              START A CAMPAIGN
-            </Button>
+          <Button
+  variant="contained"
+  sx={{
+    px: 3,
+    py: 1.5,
+    borderRadius: 2,
+    fontWeight: 'bold',
+    color: palettes.secondary.contrastText,
+    textTransform: 'none',
+    background: `linear-gradient(90deg, ${palettes.secondary.light} 0%, ${palettes.secondary.main} 100%)`,
+    '&:hover': {
+      background: `linear-gradient(90deg, ${palettes.secondary.main} 0%, ${palettes.secondary.dark} 100%)`,
+    },
+  }}
+>
+  START A CAMPAIGN
+</Button>
+
           </div>
           
           <Box className="flex flex-col lg:flex-row items-center gap-16">
