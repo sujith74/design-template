@@ -267,13 +267,13 @@ export default function Home() {
         href = 'https://program-page-pearl.vercel.app/';
         break;
       case 'LOG IN':
-        href = 'https://login-page-henna.vercel.app/';
+        href = '#login';
         break;
       case 'REPORT':
         href = 'https://report-form-template.vercel.app/';
         break;
       case 'CONTACT US':
-        href = 'https://contact-us-form-tau.vercel.app/';
+        href = '/contact';
         break;
     }
 
